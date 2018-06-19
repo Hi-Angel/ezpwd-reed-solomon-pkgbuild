@@ -15,11 +15,12 @@ sha256sums=('d31ab61b4cc911508969d150f571878e824434c789d2a67870aeb1e3a9225211'
 package() {
 	cd "$srcdir/ezpwd-reed-solomon-$pkgver"
 	mkdir -p  "$pkgdir/usr/include/ezpwd-reed-solomon"
-	cp -r c++/ezpwd/* "$pkgdir/usr/include/ezpwd-reed-solomon"
+	cp -r c++/ezpwd/ "$pkgdir/usr/include/ezpwd-reed-solomon"
 	mkdir -p  "$pkgdir/usr/share/licenses/$pkgname"
 	install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
 	cd "$srcdir"
 	mkdir -p "$pkgdir/usr/lib/pkgconfig/"
+	perl -i -pe "s/^Version: .+/Version: $pkgver/g" ezpwd-reed-solomon-c++.pc
 	cp  ezpwd-reed-solomon-c++.pc "$pkgdir/usr/lib/pkgconfig/"
 }

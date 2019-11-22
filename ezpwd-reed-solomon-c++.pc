@@ -4,4 +4,4 @@ includedir=${prefix}/include
 Name: ezpwd-reed-solomon
 Description: A header-only Reed-Solomon codes implementation.
 Version: 1.8.0
-Cflags: -I${includedir}/ezpwd-reed-solomon
+Cflags: -isystem${includedir}/ezpwd-reed-solomon
